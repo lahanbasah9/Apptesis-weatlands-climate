@@ -122,10 +122,13 @@
 			</div>
 
 			<!-- Questions -->
-			<div class="h-100">
-				<h1 class="bg-light px-3 py-3 rounded text-left text-dark" id="question-container" data-animation-in="fadeInUp"
+			<div class="bg-light rounded py-3">
+				<h1 class="bg-light px-3 rounded text-left text-dark" id="question-container" data-animation-in="fadeInUp"
 					data-animation-out="animate-out fadeOut" style="font-size: 16px; font-weight: 900;">
 				</h1>
+
+				
+				<img id="quiz-image" class="mt-3 mb-3" hidden src="" alt="" style="max-width: 100%; max-height: 200px; width: auto; height: auto;">
 			</div>
 
 			<!-- Answer Options -->
@@ -171,15 +174,26 @@
 	<script src="../js/custom.js"></script>
 	<script>
 		const questions = [
-			"Pemanasan global terjadi karena meningkatnya gas.......di atmosfer bumi.",
-
-			"Salah satu akibat dari meningkatnya gas rumah kaca di atmosfer yang paling kita rasakan adalah pemanasan global. Peningkatan suhu rata – rata global dimulai sejak pertengahan abad ke – 20. Pada kehidupan sehari – hari, kita dapat merasakannya pada saat upacara hari Senin dan merasa bahwa kulit kita terbakar. Jadi, dapat kita ketahui bahwa pengertian dari Pemanasan Global / Global Warming adalah ....",
-
-			"Penyebab terjadinya gambar di atas dikarenakan ulah manusia sendiri, yakni dengan pertumbuhan populasi teknologi dan industri serta penambahan populasi penduduk yang semakin bertambah. Hal inilah yang menyebabkan terjadinya pemanasan global di seluruh dunia. Oleh karena itu, salah satu faktor penyebab terjadinya pemanasan global adalah ...",
-
-			"Yang tidak termasuk pada gas rumah kaca adalah...",
-
-			"Cara mengurangi global warming adalah dengan...",
+			{
+				q: "Pemanasan global terjadi karena meningkatnya gas.......di atmosfer bumi.",
+				imgPath: "../File/quiz-1.png"
+			},
+			{
+				q: "Salah satu akibat dari meningkatnya gas rumah kaca di atmosfer yang paling kita rasakan adalah pemanasan global. Peningkatan suhu rata – rata global dimulai sejak pertengahan abad ke – 20. Pada kehidupan sehari – hari, kita dapat merasakannya pada saat upacara hari Senin dan merasa bahwa kulit kita terbakar. Jadi, dapat kita ketahui bahwa pengertian dari Pemanasan Global / Global Warming adalah ....",
+				imgPath: "../File/quiz-2.png"
+			},
+			{
+				q: "Penyebab terjadinya gambar di atas dikarenakan ulah manusia sendiri, yakni dengan pertumbuhan populasi teknologi dan industri serta penambahan populasi penduduk yang semakin bertambah. Hal inilah yang menyebabkan terjadinya pemanasan global di seluruh dunia. Oleh karena itu, salah satu faktor penyebab terjadinya pemanasan global adalah ...",
+				imgPath: ""
+			},
+			{
+				q: "Yang tidak termasuk pada gas rumah kaca adalah...",
+				imgPath: "../File/quiz-4.png"
+			},
+			{
+				q: "Yang tidak termasuk pada gas rumah kaca adalah...",
+				imgPath: ""
+			},
 		];
 		const options = [
 			[
@@ -270,19 +284,29 @@
 		const optionsContainer = document.getElementsByClassName("option");
 
 		document.addEventListener("DOMContentLoaded", (e) => {
-			questionsContainer.innerText = questions[0];
+			displayQuestionImg()
+
+			questionsContainer.innerText = questions[0].q;
 			for (let i = 0; i < optionsContainer.length; i++) {
 				optionsContainer[i].innerText = options[0][i].option;
 			}
 		});
 
+		function displayQuestionImg() {
+			const isImageExist = questions[questionIndex].imgPath !== "";
+			const img = document.getElementById("quiz-image");
+			img.hidden = !isImageExist;
+			img.src = isImageExist ? questions[questionIndex].imgPath : "";
+		}
+
 		function mapQnA() {
 			questionIndex += 1;
 			if (questionIndex < questions.length) {
-				questionsContainer.innerText = questions[0];
+				displayQuestionImg()
+				questionsContainer.innerText = questions[0].q;
 
 				for (let i = 0; i < optionsContainer.length; i++) {
-					questionsContainer.innerText = questions[questionIndex];
+					questionsContainer.innerText = questions[questionIndex].q;
 					optionsContainer[i].innerText = options[questionIndex][i].option;
 				}
 
