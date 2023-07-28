@@ -22,5 +22,5 @@ the changes that being added
 
 #### Example:
 ```
-build(quiz): create function to count total score
+feat(quiz): create function to count total score
 ```
