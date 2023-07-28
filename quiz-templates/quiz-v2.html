@@ -94,21 +94,31 @@
 	</div>
 
 	<!-- Question & Answer -->
-		<!-- Background Cover -->
-	<div class="" style="background-image:url(../images/slider_background.jpg); height: 100vh; overflow-y: scroll;">
+	<!-- Background Cover -->
+	<div style="background-image:url(../images/slider_background.jpg); height: 100vh; overflow-y: scroll;">
 		<!-- Content -->
-		<div class="d-flex flex-column justify-content-between px-3 text-center text-light"
-			style="height: 100%; padding-top: 20vh;">
+		<div class="d-flex flex-column justify-content-between text-center text-light"
+			style="height: 100%; padding-top: 15vh; padding-left: 5%; padding-right: 5%;">
 
 			<!-- Total Score (when quiz finished) -->
 			<div class="card px-4 pt-3 pb-4 bg-white text-dark" id="score-card" hidden style="margin-top: 5vh;">
 				<h3>Total Skor</h3>
 				<h2 id="total-score"></h2>
-				<img id="masked-earth" class="mt-3 mb-0" hidden src="/File/masked-earth.png" alt="" srcset=""
+
+				<img id="masked-earth" class="mt-3 mb-0" hidden src="../File/masked-earth.png" alt="" srcset=""
 					style="width: 100%; height: 25vh;">
-				<img id="happy-earth" class="mt-3 mb-0" hidden src="/File/happy-earth.png" alt="" srcset=""
+				<img id="happy-earth" class="mt-3 mb-0" hidden src="../File/happy-earth.png" alt="" srcset=""
 					style="width: 40vw; height: fit-content">
+
 				<div class="mt-3" id="score-message"></div>
+
+				<div class="news_post_button text-center trans_200 mt-4 mb-2">
+					<a href="./quiz_sample.html">Ambil Tes Ulang</a>
+				</div>
+
+				<div class="news_post_button text-center trans_200 mt-3 mb-0">
+					<a href="../index.html">Kembali ke beranda</a>
+				</div>
 			</div>
 
 			<!-- Questions -->
@@ -140,12 +150,10 @@
 	</div>
 
 	<!-- Answer Button -->
-	<div class="container">
-		<div class="fixed-bottom row justify-content-center p-1" id="answer-button-row">
-			<div class="btn btn-secondary bg-secondary d-flex align-items-center text-dark col-11 card" id="answer-button"
-				onclick="submitAnswer()">
-				Jawab
-			</div>
+	<div class="fixed-bottom mt-0 mb-2" id="answer-button-row" style="width: 95vw; padding-left: 5vw;">
+		<div class="btn btn-secondary bg-secondary d-flex align-items-center text-dark card"
+			id="answer-button" onclick="submitAnswer()">
+			Jawab
 		</div>
 	</div>
 
@@ -163,16 +171,22 @@
 	<script src="../js/custom.js"></script>
 	<script>
 		const questions = [
-			"Siapa presiden pertama Indonesia?",
+			"Pemanasan global terjadi karena meningkatnya gas.......di atmosfer bumi.",
+
 			"Salah satu akibat dari meningkatnya gas rumah kaca di atmosfer yang paling kita rasakan adalah pemanasan global. Peningkatan suhu rata – rata global dimulai sejak pertengahan abad ke – 20. Pada kehidupan sehari – hari, kita dapat merasakannya pada saat upacara hari Senin dan merasa bahwa kulit kita terbakar. Jadi, dapat kita ketahui bahwa pengertian dari Pemanasan Global / Global Warming adalah ....",
-			"Penyebab terjadinya gambar di atas dikarenakan ulah manusia sendiri, yakni dengan pertumbuhan populasi teknologi dan industri serta penambahan populasi penduduk yang semakin bertambah. Hal inilah yang menyebabkan terjadinya pemanasan global di seluruh dunia. Oleh karena itu, salah satu faktor penyebab terjadinya pemanasan global adalah ..."
+
+			"Penyebab terjadinya gambar di atas dikarenakan ulah manusia sendiri, yakni dengan pertumbuhan populasi teknologi dan industri serta penambahan populasi penduduk yang semakin bertambah. Hal inilah yang menyebabkan terjadinya pemanasan global di seluruh dunia. Oleh karena itu, salah satu faktor penyebab terjadinya pemanasan global adalah ...",
+
+			"Yang tidak termasuk pada gas rumah kaca adalah...",
+
+			"Cara mengurangi global warming adalah dengan...",
 		];
 		const options = [
 			[
-				{ option: "Ir. Soekarno", isAnswer: true },
-				{ option: "Soeharto", isAnswer: false },
-				{ option: "B.J. Habibie", isAnswer: false },
-				{ option: "Gusdur", isAnswer: false },
+				{ option: "CO", isAnswer: false },
+				{ option: "H2", isAnswer: false },
+				{ option: "CO2", isAnswer: true },
+				{ option: "Helium", isAnswer: false },
 			],
 			[
 				{
@@ -208,6 +222,42 @@
 				{
 					option: "Punahnya berbagai hewan",
 					isAnswer: false
+				},
+			],
+			[
+				{
+					option: "CO2",
+					isAnswer: false
+				},
+				{
+					option: "H2O",
+					isAnswer: true
+				},
+				{
+					option: "CH4",
+					isAnswer: false
+				},
+				{
+					option: "N2O",
+					isAnswer: false
+				},
+			],
+			[
+				{
+					option: "Remake, reuse, recycle",
+					isAnswer: false
+				},
+				{
+					option: "Mengganti kompor dengan gas elpiji",
+					isAnswer: false
+				},
+				{
+					option: "Mengganti lampu dengan lilin",
+					isAnswer: false
+				},
+				{
+					option: "Penanaman pohon",
+					isAnswer: true
 				},
 			]
 		];
@@ -261,6 +311,8 @@
 						:
 						"Hmm... tidak apa-apa, kita bisa kembali mempelajarinya";
 			}
+
+			selectedAnswer = -1
 		}
 
 		function doSelectAnswer(answerIndex) {
@@ -277,8 +329,9 @@
 		}
 
 		function submitAnswer() {
-			if (selectedAnswer >= 0 && selectedAnswer < optionsContainer.length)
+			if (selectedAnswer >= 0 && selectedAnswer < optionsContainer.length) {
 				totalScore += options[questionIndex][selectedAnswer].isAnswer == true;
+			} else { return }
 
 			mapQnA();
 
