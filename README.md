@@ -3,7 +3,7 @@
 ### Git Commit Messages
 Format: ```<type>(<scope>): <subject>```
 
-#### <type>: required
+#### type: required
 - build: Build related changes (eg: npm related/ adding external dependencies)
 - chore: A code change that external user won't see (eg: change to .gitignore file or .prettierrc-file)
 - feat: A new feature
@@ -14,10 +14,10 @@ Format: ```<type>(<scope>): <subject>```
 - style: A code that is related to styling
 - test: Adding new test or making changes to existing test
 
-#### <scope>: optional
+#### scope: optional
 noun and it represents the section of the section of the codebase
 
-#### <subject>: required
+#### subject: required
 the changes that being added
 
 #### Example:
