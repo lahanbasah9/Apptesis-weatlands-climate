@@ -113,7 +113,7 @@
 				<div class="mt-3" id="score-message"></div>
 
 				<div class="news_post_button text-center trans_200 mt-4 mb-2">
-					<a href="./quiz_sample.html">Ambil Tes Ulang</a>
+					<a href="./quiz_v2.html">Ambil Tes Ulang</a>
 				</div>
 
 				<div class="news_post_button text-center trans_200 mt-3 mb-0">
@@ -131,7 +131,7 @@
 				<img id="quiz-image" class="mt-3 mb-3" hidden src="" alt="" style="max-width: 100%; max-height: 200px; width: auto; height: auto;">
 			</div>
 
-			<!-- Answer Options -->
+			<!-- Multiple-Answers Options -->
 			<div class="container mt-5 mb-0" id="options-container" style="padding-bottom: 10vh;">
 				<div class="row justify-content-center">
 					<div class="option btn btn-primary text-dark d-flex justify-content-center col-12 m-1 p-2 card"
@@ -147,6 +147,14 @@
 						class="option btn btn-primary text-dark d-flex justify-content-center col-12 m-1 p-2 card align-items-center"
 						style="font-size: 14px; text-wrap: wrap;" onclick="doSelectAnswer(3)">
 					</div>
+				</div>
+			</div>
+			
+			<!-- Essay Answer -->
+			<div class="container mt-5 mb-0" id="essay-answer-container" style="display: none; padding-bottom: 10vh;">
+				<div class="row justify-content-center">
+					<input type="text" name="essay" id="essay-answer" class="form-control btn text-dark d-flex justify-content-center col-12 m-1 p-2 card" required
+					style="font-size: 14px; text-wrap: wrap;">
 				</div>
 			</div>
 		</div>
@@ -175,105 +183,666 @@
 	<script>
 		const questions = [
 			{
-				q: "Pemanasan global terjadi karena meningkatnya gas.......di atmosfer bumi.",
-				imgPath: "../File/quiz-1.png"
-			},
-			{
-				q: "Salah satu akibat dari meningkatnya gas rumah kaca di atmosfer yang paling kita rasakan adalah pemanasan global. Peningkatan suhu rata – rata global dimulai sejak pertengahan abad ke – 20. Pada kehidupan sehari – hari, kita dapat merasakannya pada saat upacara hari Senin dan merasa bahwa kulit kita terbakar. Jadi, dapat kita ketahui bahwa pengertian dari Pemanasan Global / Global Warming adalah ....",
-				imgPath: "../File/quiz-2.png"
-			},
-			{
-				q: "Penyebab terjadinya gambar di atas dikarenakan ulah manusia sendiri, yakni dengan pertumbuhan populasi teknologi dan industri serta penambahan populasi penduduk yang semakin bertambah. Hal inilah yang menyebabkan terjadinya pemanasan global di seluruh dunia. Oleh karena itu, salah satu faktor penyebab terjadinya pemanasan global adalah ...",
+				q: "1. Berikut ini yang termasuk gas-gas efek rumah kaca, kecuali",
 				imgPath: ""
 			},
 			{
-				q: "Yang tidak termasuk pada gas rumah kaca adalah...",
-				imgPath: "../File/quiz-4.png"
+				q: "2. Revolusi Industri adalah masa ketika awal mula penggunaan bahan bakar fossil secara massiv, itu terjadi pada tahun…",
+				imgPath: ""
 			},
 			{
-				q: "Yang tidak termasuk pada gas rumah kaca adalah...",
+				q: "3. Bumi memiliki lapisan tipis udara yang sangat bagus disekelilingnya. Jika bumi adalah sebuah apel, maka atmosfernya akan setebal kulitnya. Jika dilihat jauh lebih dekat, lapisan terbuat dari gas, sebagian besar adalah gas nitrogen dan oksigen. Lapisan tersebut dinamakan…",
 				imgPath: ""
+			},
+			{
+				q: "4. Menurut Konvensi Ramsar-Iran, yang merupakan 7  Ramsar Site di Indonesia adalah sebagai berikut, kecuali…",
+				imgPath: ""
+			},
+			{
+				q: "5. Perbedaan lahan gambut dan hutan biasa dalam konteks perubahan iklim yaitu…",
+				imgPath: ""
+			},
+			{
+				q: "6. Status konservasi yang tercatat di International Union for Conservation of Nature and Natural Resources (IUCN)  dari ikan Kakaktua (parrotfish) yang merupakan salah satu hewan penting bagi kelestarian terumbu karang adalah…",
+				imgPath: ""
+			},
+			{
+				q: "7. Berikut ini adalah perbedaan rawa lebak dan rawa pasang surut yang tepat",
+				imgPath: ""
+			},
+			{
+				q: "8.	Untuk memitigasi perubahan iklim dari lahan basah sawah, peneliti mengembangkan tanaman Padi (Oryza sativa) dengan varietas rendah emisi, varietas tersebut adalah sebagai berikut, kecuali… ",
+				imgPath: ""
+			},
+			{
+				q: "9.	Berikut ini adalah provinsi-provinsi prioritas restorasi mangrove di Indonesia, kecuali…",
+				imgPath: ""
+			},
+			{
+				q: "10. Berikut ini adalah upaya yang dilakukan oleh Badan Restorasi Gambut dan Mangrove Indnesia (BRGM) untuk menanggulangi lahan gambut terdegradasi, kecuali…",
+				imgPath: ""
+			},
+			{
+				q: "11.	Karang adalah kumpulan hewan laut yang telah mati, benarkah pernyataan tersebut? Mengapa?",
+				imgPath: ""
+			},
+			{
+				q: "12.	Terumbu (reef) merupakan endapan massive kalsium karbonat yang dihasilkan oleh hewan karang dan biota-biota lain. Bagaimanakah rumus kimia senyawa kalsium karbonat?",
+				imgPath: ""
+			},
+			{
+				q: "13.	Perhatikan beberapa pernyataan di bawah ini. Yang dapat dilakukan oleh kaum muda dalam melaksanakan solusi perubahan iklim adalah",
+				imgPath: ""
+			},
+			{
+				q: "14.	Provinsi yang tengah mengerjakan proyek danau Sipin yang merupakan danau yang mempedulikan keberlangsungan makhluk hidup dan menanggulangi perubahan iklim adalah…",
+				imgPath: ""
+			},
+			{
+				q: "15.	Berikut ini merupakan contoh aspek biologi dan lingkungan menurut Kementerian Kelautan dan Perikanan pada website kkp.go.id (2023), kecuali…",
+				imgPath: ""
+			},
+			{
+				q: "16.	Berikut ini adalah beberapa cara untuk mengelola salah satu lahan basah berupa lahan pasang surut, kecuali…",
+				imgPath: ""
+			},
+			{
+				q: "17.	Mengapa karbondioksida yang berasal dari atmosfer dapat berada di lautan dan mengakibatkan pengasaman air laut?",
+				imgPath: ""
+			},
+			{
+				q: "18.	Mengapa Gas Rumah Kaca (GRK) berbahaya bagi lingkungan?",
+				imgPath: ""
+			},
+			{
+				q: "19. Manfaat utama dari hutan mangrove adalah…",
+				imgPath: ""
+			},
+			{
+				q: "20. Berikut ini adalah gambar bleaching (pemutihan karang). Bleaching adalah respons berupa stress akibat hubungan simbiosis antara karang dan alga yang rusak. Istilah ‘bleaching’ menggambarkan hilangnya warna karang karena alga hilang dari karang atau pigmen warna pada alga menurun karena kualitas air laut menjadi lebih buruk bagi pertumbuhan rangka karang. Rangka kapur yang berwarna putih terlihat akibat jaringan karang yang menjadi transparan. Hal ini membuat karang terlihat berwarna putih cerah seperti diberi pemutih. Bleaching juga muncul pada binatang yang bersimbiosis dengan zooxanthellae, seperti kerang raksasa, anemon laut, dan sponge atau bunga karang. Apa yang menjadi faktor utama penyebab coral bleaching?",
+				imgPath: "../File/quiz-20.png"
+			},
+			{
+				q: "21. Berikut ini adalah gambar proses terjadinya Efek Rumah Kaca \nLangkah 4 dan langkah 5 pada gambar diatas adalah…",
+				imgPath: "../File/quiz-21.png"
+			},
+			{
+				q: "22.	Berikut ini adalah grafik perubahan suhu permukaan global relatif terhadap suhu rata-rata pada Tahun 1880-2020 \nBerdasarkan grafik diatas, bumi telah mengalami peningkatan suhu global rata-rata lebih dari sejak 1880. Pada akhir tahun 2020 kenaikan yang terjadi menurut data diatas adalah sekitar…",
+				imgPath: "../File/quiz-22.png"
+			},
+			{
+				q: "23.	Berikut ini merupakan isi dari perjanjian paris tahun 2015, kecuali…",
+				imgPath: ""
+			},
+			{
+				q: "24.	Kandungan karbondioksida yang berlebih di atmosfer bumi dapat menimbulkan...",
+				imgPath: ""
+			},
+			{
+				q: "25.	Pengertian lahan basah menurut Konvensi Ramsar adalah…",
+				imgPath: ""
+			},
+			{
+				q: "Berdasarkan grafik di bawah, jawablah pertanyaan berikut dengan B jika pernyataan benar dan S jika pernyataan salah \n\n26. Samudra India dan Australia merupakan daerah yang mengalami pemutihan karang terbesar pada tahun 2016.",
+				imgPath: "../File/quiz-26-30.png"
+			},
+			{
+				q: "Berdasarkan grafik di bawah, jawablah pertanyaan berikut dengan B jika pernyataan benar dan S jika pernyataan salah \n\n27.	Peningkatan suhu berbanding lurus dengan pemutihan karang.",
+				imgPath: "../File/quiz-26-30.png"
+			},
+			{
+				q: "Berdasarkan grafik di bawah, jawablah pertanyaan berikut dengan B jika pernyataan benar dan S jika pernyataan salah \n\n28.	Pada tahun 2020 terjadi peningkatan suhu hingga 0,40˚C.",
+				imgPath: "../File/quiz-26-30.png"
+			},
+			{
+				q: "Berdasarkan grafik di bawah, jawablah pertanyaan berikut dengan B jika pernyataan benar dan S jika pernyataan salah \n\n29.	Berdasarkan grafik, empat wilayah tersebut memiliki tren penurunan pemutihan karang.",
+				imgPath: "../File/quiz-26-30.png"
+			},
+			{
+				q: "Berdasarkan grafik di bawah, jawablah pertanyaan berikut dengan B jika pernyataan benar dan S jika pernyataan salah \n\n30.	Ikan karang akan menurun populasinya dan keanekaragaman hayati pesisir akan berkurang",
+				imgPath: "../File/quiz-26-30.png"
+			},
+			{
+				q: "31.	Konvensi yang dilakukan di negara Iran sebagai upaya negara-negara di dunia dalam pengaturan perlindungan terhadap lahan basah dinamakan konvensi…g",
+				imgPath: "",
+				isEssay: true
+			},
+			{
+				q: "32. Lahan basah yang paling penting sebagai solusi perubahan iklim karena kemampuannya menyerap karbondioksida 3-5 kali lipat lebih besar dari hutan tropis dan mampu menahan abrasi air laut dinamakan hutan…",
+				imgPath: "",
+				isEssay: true
+			},
+			{
+				q: "33. Lahan basah yang menjadi penyerap karbondioksida dari emisi pemanasan global yang mencapai 13x lipat lebih baik dari lahan biasa dan saat musim kering area ini dapat menyerap banyak air menjadi 13x lipat dari bobotnya adalah lahan…",
+				imgPath: "",
+				isEssay: true
+			},
+			{
+				q: "34. Ekosistem yang tampak berwarna-warni yang menjadi habitat beragam spesies ikan dan invetebrata adalah…",
+				imgPath: "",
+				isEssay: true
+			},
+			{
+				q: "35.	Gas yang paling bertanggung jawab dalam mengakibatkan efek rumah kaca adalah…",
+				imgPath: "",
+				isEssay: true
 			},
 		];
 		const options = [
-			[
-				{ option: "CO", isAnswer: false },
-				{ option: "H2", isAnswer: false },
-				{ option: "CO2", isAnswer: true },
-				{ option: "Helium", isAnswer: false },
+			[ // #1
+				{ option: "CO2", isAnswer: false },
+				{ option: "Uap Air", isAnswer: false },
+				{ option: "CH4", isAnswer: false },
+				{ option: "Etana", isAnswer: true },
 			],
-			[
+			[ // #2
 				{
-					option: "Proses peningkatan suhu rata-rata atmosfer,angin,dan daratan yang disebabkan oleh berbagai faktor penyebab",
-					isAnswer: false
-				},
-				{
-					option: "Proses penurunan suhu rata-rata atmosfer,laut,dan udara yang disebabkan oleh berbagai faktor penyebab",
-					isAnswer: false
-				},
-				{
-					option: "Proses penurunan suhu rata-rata atmosfer,laut,dan daratan yang disebabkan oleh berbagai faktor penyebab",
+					option: "1800an",
 					isAnswer: true
 				},
 				{
-					option: "Proses peningkatan suhu rata-rata atmosfer,laut,dan daratan yang disebabkan oleh berbagai faktor penyebab",
+					option: "2001",
+					isAnswer: false
+				},
+				{
+					option: "1900an",
+					isAnswer: false
+				},
+				{
+					option: "2000an",
 					isAnswer: false
 				}
 			],
-			[
+			[ // #3
 				{
-					option: "Makanan berminyak",
+					option: "Hidrosfer",
 					isAnswer: false
 				},
 				{
-					option: "Proses peningkatan suhu rata-rata atmosfer,laut,dan daratan yang disebabkan oleh berbagai faktor Penggunaan CFC",
+					option: "Atmosfer",
 					isAnswer: true
 				},
 				{
-					option: "Efek rumah plastik",
+					option: "Troposfer",
 					isAnswer: false
 				},
 				{
-					option: "Punahnya berbagai hewan",
+					option: "Astenosfer",
 					isAnswer: false
 				},
 			],
-			[
+			[ // #4
+				{
+					option: "Taman Nasional Sembilang di Sumatera Selatan",
+					isAnswer: false
+				},
+				{
+					option: "Danau Sentarum di Kalimantan Barat",
+					isAnswer: false
+				},
+				{
+					option: "Taman Nasional Tanjung Puting di Kalimantan Tengah",
+					isAnswer: false
+				},
+				{
+					option: "Taman Nasional Komodo di Nusa Tenggara Timur",
+					isAnswer: true
+				},
+			],
+			[ // #5
+				{
+					option: "Lahan gambut memiliki banyak cadangan karbondioksida 20 x lipat disbanding karbon tanah mineral biasa.",
+					isAnswer: true
+				},
+				{
+					option: "Lahan gambut memiliki air berwarna kehitaman yang menjadi habitat banyak biota air",
+					isAnswer: false
+				},
+				{
+					option: "Lahan gambut bertindak seperti spons yang menyerap 13x lipat air dari bobotnya",
+					isAnswer: false
+				},
+			],
+			[ // #6
+				{
+					option: "Extinct",
+					isAnswer: false
+				},
+				{
+					option: "Least Concern",
+					isAnswer: false
+				},
+				{
+					option: "Near Extinct",
+					isAnswer: true
+				},
+				{
+					option: "Critically Endangered",
+					isAnswer: false
+				},
+			],
+			[ // #7
+				{
+					option: "Rawa lebak adalah rawa yang terletak jauh dari pantai sedangkan rawa pasang surut berada didekat pantai atau sungai.",
+					isAnswer: true
+				},
+				{
+					option: "Rawa lebak memiliki kedalaman bervariasi sedangkan rawa pasang surut memiliki kedalaman maksimal 100 cm.",
+					isAnswer: false
+				},
+				{
+					option: "Rawa lebak adalah rawa dengan genangan air kurang dari 50 cm dan tergenang maksimal 3 bulan sedangkan rawa pasang surut adalah rawa yang sering tidak terluapi air",
+					isAnswer: false
+				},
+				{
+					option: "Rawa lebak adalah rawa dengan keanekaragaman hayati tinggi sedangkan rawa pasang surut memiliki keanekaragaman hayati rendah",
+					isAnswer: false
+				},
+			],
+			[ // #8
+				{
+					option: "Maros",
+					isAnswer: false
+				},
+				{
+					option: "Way Rarem",
+					isAnswer: false
+				},
+				{
+					option: "Ciherang",
+					isAnswer: false
+				},
+				{
+					option: "Pandan Wangi",
+					isAnswer: true
+				},
+			],
+			[ // #9
+				{
+					option: "Jawa Barat",
+					isAnswer: true
+				},
+				{
+					option: "Kalimantan Barat",
+					isAnswer: false
+				},
+				{
+					option: "Kalimantan Selatan",
+					isAnswer: false
+				},
+				{
+					option: "Kalimantan Tengah",
+					isAnswer: false
+				},
+			],
+			[ // #10
+				{
+					option: "Rewetting",
+					isAnswer: false
+				},
+				{
+					option: "Revegetation",
+					isAnswer: false
+				},
+				{
+					option: "Revitalization of Livelihood",
+					isAnswer: false
+				},
+				{
+					option: "Reboisation",
+					isAnswer: true
+				},
+			],
+			[ // #11
+				{
+					option: "Benar, karena karang adalah tumpukan makhluk hidup laut yang telah mati dan mengerak selama ratusan tahun di laut",
+					isAnswer: false
+				},
+				{
+					option: "Salah, karena karang adalah invertebrata air laut yang hidup dan dapat bergerak",
+					isAnswer: true
+				},
+				{
+					option: "Salah karena karang sekumpulan bebatuan di laut yang bukan berasal dari makhluk hidup",
+					isAnswer: false
+				},
+				{
+					option: "Salah, karena karang merupakan suatu ekosistem yang ada di laut",
+					isAnswer: false
+				},
+			],
+			[ // #12
+				{
+					option: "CaCO2",
+					isAnswer: false
+				},
+				{
+					option: "CaCO3",
+					isAnswer: true
+				},
 				{
 					option: "CO2",
 					isAnswer: false
 				},
 				{
-					option: "H2O",
-					isAnswer: true
-				},
-				{
-					option: "CH4",
-					isAnswer: false
-				},
-				{
-					option: "N2O",
+					option: "CaCO4",
 					isAnswer: false
 				},
 			],
-			[
+			[ // #13
 				{
-					option: "Remake, reuse, recycle",
-					isAnswer: false
-				},
-				{
-					option: "Mengganti kompor dengan gas elpiji",
-					isAnswer: false
-				},
-				{
-					option: "Mengganti lampu dengan lilin",
-					isAnswer: false
-				},
-				{
-					option: "Penanaman pohon",
+					option: "1, 2 dan 3",
 					isAnswer: true
 				},
-			]
+				{
+					option: "1 dan 3",
+					isAnswer: false
+				},
+				{
+					option: "2 dan 3",
+					isAnswer: false
+				},
+				{
+					option: "1 dan 4",
+					isAnswer: false
+				},
+			],
+			[ // #14
+				{
+					option: "Kalimantan Timur",
+					isAnswer: false
+				},
+				{
+					option: "Kalimantan Tengah",
+					isAnswer: false
+				},
+				{
+					option: "Jambi",
+					isAnswer: true
+				},
+				{
+					option: "Sumatera Selatan",
+					isAnswer: false
+				},
+			],
+			[ // #15
+				{
+					option: "Menjaga sumber daya perikanan dan kelautan agar berkelanjutan produktivitasnya. ",
+					isAnswer: false
+				},
+				{
+					option: "Meminimalkan dampak penangkapan ikan terhadap lingkungan dan Sumber Daya Ikan termasuk untuk spesies non-target dan spesies yang dilindungi. Termasuk di dalamnya melakukan konservasi perairan.",
+					isAnswer: false
+				},
+				{
+					option: "Menghasilkan keuntungan ekonomi yang optimal bagi pelaku usaha dan masyarakat serta menghasilkan penerimaan berkelanjutan bagi negara melalui pariwisata yang berkesinambungan.",
+					isAnswer: true
+				},
+				{
+					option: "Menjaga keberlangsungan hidup dari spesies laut yang terancam punah.",
+					isAnswer: false
+				},
+			],
+			[ // #16
+				{
+					option: "Perluasan Areal",
+					isAnswer: false
+				},
+				{
+					option: "Peningkatan Indeks Pertanaman (IP)",
+					isAnswer: false
+				},
+				{
+					option: "Pengelolaan Air",
+					isAnswer: false
+				},
+				{
+					option: "Pembuatan pestisida alami",
+					isAnswer: true
+				},
+			],
+			[ // #17
+				{
+					option: "Karbondioksida merupakan gas yang dapat larut masuk ke dalam air dan bereaksi kimia dengan air laut sehingga mengakibatkan air laut menjadi lebih asam",
+					isAnswer: true
+				},
+				{
+					option: "Karbondioksida bereaksi kimia dengan udara dan air aut sehingga menghasilkan ion carbon yang membuat pH laut meningkat",
+					isAnswer: false
+				},
+				{
+					option: "Karbondioksida bereaksi kimia dengan udara dan air laut sehingga menghasilkan ion carbon yang membuat pH laut menurun",
+					isAnswer: false
+				},
+				{
+					option: "Karbondioksida bereaksi kimia dengan udara dan air laut sehingga menghasilkan ion hidrogen yang membuat pH laut meningkat",
+					isAnswer: false
+				},
+			],
+			[ // #18
+				{
+					option: "Karena GRK akan terhirup oleh manusia sehingga menyebabkan penyakit saluran pernafasan",
+					isAnswer: false
+				},
+				{
+					option: "Karena GRK memerangkap panas matahari yang seharusnya kembali ke atmosfer sehingga membuat suhu rata-rata bumi memanas dan mengakibatkan kerusakan lingkungan",
+					isAnswer: true
+				},
+				{
+					option: "Karena GRK membuat suhu bumi meningkat dan meningkatkan pH air laut",
+					isAnswer: false
+				},
+				{
+					option: "Karena GRK membuat suhu bumi menurun dan membuat es di kutub serta gletser mencair",
+					isAnswer: false
+				},
+			],
+			[ // #19
+				{
+					option: "Menahan laju abrasi di pesisir pantai",
+					isAnswer: false
+				},
+				{
+					option: "Menahan laju abrasi di pesisir pantai",
+					isAnswer: true
+				},
+				{
+					option: "Menjadi lokasi tambak udang",
+					isAnswer: false
+				},
+				{
+					option: "Menjadi lokasi hidup ikan dan biota laut lain",
+					isAnswer: false
+				},
+			],
+			[ // #20
+				{
+					option: "Peningkatan suhu perairan akibat pemanasan global, eningkatan suhu sebesar 1º-2º Celsius dapat memicu terjadinya bleaching karena suhu lingkungan tempat karang hidup sudah mendekati batas maksimal.",
+					isAnswer: true
+				},
+				{
+					option: "Air laut yang bersifat racun karena terpapar bahan kimia berbahaya yang berasal dari limbah pabrik yang dibuang ke laut.",
+					isAnswer: false
+				},
+				{
+					option: "Penurunan kadar pH air laut menurunkan kemampuan alga memproses cahaya untuk berfotosintesis.",
+					isAnswer: false
+				},
+				{
+					option: "Peningkatan kadar pH air laut menurunkan kemampuan alga memproses cahaya untuk berfotosintesis.",
+					isAnswer: false
+				},
+			],
+			[ // #21
+				{
+					option: "Radiasi matahari mencapai atmosfer bumi dan beberapa diantaranya dipantulkan kembali ke luar angkasa",
+					isAnswer: false
+				},
+				{
+					option: "Sisa energi matahari diserap oleh daratan dan lautan dan kemudian memanaskan Bumi",
+					isAnswer: false
+				},
+				{
+					option: "Panas memancar dari Bumi menuju ruang angkasa dan gas rumah kaca yang memerangkap panas ekstra, dan menyebabkan suhu bumi naik.",
+					isAnswer: false
+				},
+				{
+					option: "Sebagian dari panas matahari terperangkap oleh GRK  di atmosfer dan aktivitas manusia seperti membakar bahan bakar fosil meningkatkan jumlah GRK  yang dilepaskan ke atmosfer.",
+					isAnswer: true
+				},
+			],
+			[ // #22
+				{
+					option: "0.8˚C",
+					isAnswer: false
+				},
+				{
+					option: "0.9˚C",
+					isAnswer: false
+				},
+				{
+					option: "1.0˚C",
+					isAnswer: true
+				},
+				{
+					option: "1.1˚C",
+					isAnswer: false
+				},
+			],
+			[ // #23
+				{
+					option: "Melakukan upaya maksimal dalam mencegah perubahan iklim",
+					isAnswer: false
+				},
+				{
+					option: "Memperlambat laju pemanasan global di bawah 2˚Celcius, atau paling ideal 1,5˚Celcius. Saat ini suhu bumi terus memanas",
+					isAnswer: false
+				},
+				{
+					option: "Negara-negara di dunia harus mengurangi tingkat emisi gas rumah kaca dan aktivitas serupa untuk mencapai target emisi net zero (nol bersih) pada tahun 2050.",
+					isAnswer: false
+				},
+				{
+					option: "Negara-negara maju dan berkembang tidak diharuskan bekerja sama dalam pendanaan dan dukungan implementasi energi terbarukan yang lebih efektif",
+					isAnswer: true
+				},
+			],
+			[ // #24
+				{
+					option: "Pemanasan global",
+					isAnswer: true
+				},
+				{
+					option: "Sesak napas",
+					isAnswer: false
+				},
+				{
+					option: "Hujan asam",
+					isAnswer: false
+				},
+				{
+					option: "Berlubangnya ozon",
+					isAnswer: false
+				},
+			],
+			[ // #25
+				{
+					option: "Wilayah lahan gambut, rawa dan air yang terbentuk secara alami atau buatan dan memiliki sifat sementara atau permanan, tidak mengalir (diam) atau mengalir dengan sifat payau, asin atau tawar, serta mencakup wilayah air marine yang ketika surut memiliki kedalaman maksimal 6 meter.",
+					isAnswer: true
+				},
+				{
+					option: "Ekosistem air tawar yang memiliki peranan penting dalam mitigasi serta adaptasi perubahan iklim. Lahan basah dapat menyimpan sejumlah besar karbon dan memiliki sejumlah manfaat yang esensial bagi lingkungan dan kehidupan masyarakat sekitar",
+					isAnswer: false
+				},
+				{
+					option: "Ekosistem yang umum  ditemukan di garis pantai, yang cenderung lebih dekat ke laut dari pada ke darat dengan tanaman yang unik karena bisa mengkonversi air laut yang pekat garam untuk melakukan proses fotosintesisnya. ",
+					isAnswer: false
+				},
+				{
+					option: "Salah satu ekosistem yang unik di dunia yang dapat menyimpan sejumlah besar karbon di bawah permukaan tanah memiliki luas sekitar dari 3% permukaan bumi namun mengandung 20x karbon lebih banyak dari hutan lain di dunia.",
+					isAnswer: false
+				},
+			],
+			[ // #26
+				{
+					option: "B",
+					isAnswer: true
+				},
+				{
+					option: "S",
+					isAnswer: false
+				},
+			],
+			[ // #27
+				{
+					option: "B",
+					isAnswer: true
+				},
+				{
+					option: "S",
+					isAnswer: false
+				},
+			],
+			[ // #28
+				{
+					option: "B",
+					isAnswer: true
+				},
+				{
+					option: "S",
+					isAnswer: false
+				},
+			],
+			[ // #29
+				{
+					option: "B",
+					isAnswer: false
+				},
+				{
+					option: "S",
+					isAnswer: true
+				},
+			],
+			[ // #30
+				{
+					option: "B",
+					isAnswer: true
+				},
+				{
+					option: "S",
+					isAnswer: false
+				},
+			],
+			[ // #31
+				{
+					option: "Ramsar",
+					isAnswer: true
+				},
+			],
+			[ // #32
+				{
+					option: "Mangrove",
+					isAnswer: true
+				},
+			],
+			[ // #33
+				{
+					option: "Gambut",
+					isAnswer: true
+				},
+			],
+			[ // #34
+				{
+					option: "Terumbu Karang",
+					isAnswer: true
+				},
+			],
+			[ // #35
+				{
+					option: "Karbondioksida",
+					isAnswer: true
+				},
+			],
 		];
 
 		let questionIndex = 0;
@@ -305,17 +874,36 @@
 				displayQuestionImg()
 				questionsContainer.innerText = questions[0].q;
 
-				for (let i = 0; i < optionsContainer.length; i++) {
+				if (questions[questionIndex].isEssay) {
 					questionsContainer.innerText = questions[questionIndex].q;
-					optionsContainer[i].innerText = options[questionIndex][i].option;
+					document.getElementById("essay-answer-container").style.display = "block";
+					document.getElementById("options-container").hidden = true;
+				} else {
+					document.getElementById("essay-answer-container").style.display = "none";
+					document.getElementById("options-container").hidden = false;
+
+					for (let i = 0; i < optionsContainer.length; i++) {
+						questionsContainer.innerText = questions[questionIndex].q;
+						if (options[questionIndex][i] !== undefined) {
+							optionsContainer[i].classList.remove("d-none");
+							optionsContainer[i].classList.add("d-flex");
+	
+							optionsContainer[i].hidden = false;
+							optionsContainer[i].innerText = options[questionIndex][i].option;
+						} else {
+							optionsContainer[i].classList.remove("d-flex");
+							optionsContainer[i].classList.add("d-none");
+							optionsContainer[i].innerText = "";
+						}
+					}
+					
+					const answerButton = document.getElementById("answer-button");
+					answerButton.classList.remove("btn-warning");
+					answerButton.classList.add("btn-secondary");
+	
+					answerButton.classList.remove("bg-warning");
+					answerButton.classList.add("bg-secondary");
 				}
-
-				const answerButton = document.getElementById("answer-button");
-				answerButton.classList.remove("btn-warning");
-				answerButton.classList.add("btn-secondary");
-
-				answerButton.classList.remove("bg-warning");
-				answerButton.classList.add("bg-secondary");
 			} else { // if all questions has been finished
 				questionsContainer.hidden = true;
 				document.getElementById("quest-img-container").hidden = true;
@@ -325,13 +913,13 @@
 				document.getElementById("score-card").hidden = false;
 				document.getElementById("total-score").innerText = totalScore + "/" + questions.length;
 				document.getElementById(
-					totalScore > (questions.length / 2) ?
+					totalScore > (questions.length * 0.7) ?
 						"happy-earth"
 						:
 						"masked-earth"
 				).hidden = false;
 				document.getElementById("score-message").innerText =
-					totalScore > (questions.length / 2) ?
+					totalScore > (questions.length * 0.7) ?
 						"Selamat! Kamu mendapat skor yang baik!"
 						:
 						"Hmm... tidak apa-apa, kita bisa kembali mempelajarinya";
@@ -343,7 +931,10 @@
 		function doSelectAnswer(answerIndex) {
 			selectedAnswer = answerIndex;
 
-			if (selectedAnswer >= 0 && selectedAnswer <= 4) {
+			if (
+				(selectedAnswer >= 0 && selectedAnswer <= 4)
+				|| (questions[questionIndex].isEssay && document.getElementById("essay-answer").value.trim() !== "")
+			) {
 				const answerButton = document.getElementById("answer-button");
 				answerButton.classList.remove("btn-secondary");
 				answerButton.classList.add("btn-warning");
@@ -354,12 +945,21 @@
 		}
 
 		function submitAnswer() {
-			if (selectedAnswer >= 0 && selectedAnswer < optionsContainer.length) {
-				totalScore += options[questionIndex][selectedAnswer].isAnswer == true;
-			} else { return }
+			if(questions[questionIndex].isEssay) {
+				const userAnswer = document.getElementById("essay-answer").value.trim().toLowerCase();
+				if (userAnswer == "") { return };
+
+				const correctAnswer = options[questionIndex][0].option.toLowerCase();
+
+				totalScore += userAnswer == correctAnswer;
+			} else {
+				if (selectedAnswer >= 0 && selectedAnswer < optionsContainer.length) {
+					totalScore += options[questionIndex][selectedAnswer].isAnswer == true;
+				} else { return }
+			}
 
 			mapQnA();
-
+			document.getElementById("essay-answer").value = ""
 		}
 		var home = document.getElementById('topx');
 		home.scrollTop = 0;
