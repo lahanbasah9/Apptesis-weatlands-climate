@@ -23,7 +23,7 @@
 	<header class="header d-flex flex-row">
 		<div class="header_content d-flex flex-row align-items-center">
 			<!-- Logo -->
-			<div class="logo_container">
+			<div class="logo_container" onclick="refreshCache()">
 				<div class="logo">
 					<!-- <img src="File/logo only.png" alt=""> -->
 					<img src="File/logo only.png" alt="" width="50" height="50">
@@ -440,6 +440,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="plugins/scrollTo/jquery.scrollTo.min.js"></script>
 <script src="plugins/easing/easing.js"></script>
 <script src="js/custom.js"></script>
+<script>
+	// Fungsi refresh halaman dengan mengabaikan cache untuk
+	// menerima update dari deployment terbaru
+	function refreshCache() {
+		window.location.href = './index.html?v=' + 	Date.now();
+	}
+</script>
 
 </body>
 </html>
