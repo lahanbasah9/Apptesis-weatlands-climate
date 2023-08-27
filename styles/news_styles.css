@@ -879,6 +879,7 @@ section
 .news_post_text
 {
 	margin-top: 27px;
+	text-align: justify;
 }
 .news_post_button
 {

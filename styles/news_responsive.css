@@ -324,6 +324,7 @@
 	.news_post_text
 	{
 		margin-top: 20px;
+		text-align: justify;
 	}
 	.news_post_button
 	{
