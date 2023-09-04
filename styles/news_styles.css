@@ -804,6 +804,15 @@ section
 	width: 100%;
 	height: auto;
 }
+.news_post_image2
+{
+	width: 60%;
+}
+.news_post_image2 img
+{
+	width: 60%;
+	height: auto;
+}
 .news_post_top
 {
 	margin-top: 38px;

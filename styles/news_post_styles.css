@@ -875,6 +875,7 @@ section
 .news_post_text
 {
 	margin-top: 27px;
+	text-align: justify;
 }
 .news_post_quote
 {
@@ -884,6 +885,7 @@ section
 	padding-top: 47px;
 	padding-bottom: 40px;
 	margin-top: 60px;
+	text-align: justify;
 }
 .news_post_quote::after
 {

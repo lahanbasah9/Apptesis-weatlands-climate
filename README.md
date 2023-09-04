@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Apptesis-weatlands-climate
 
 ### Git Commit Messages
@@ -24,3 +25,6 @@ the changes that being added
 ```
 feat(quiz): create function to count total score
 ```
+=======
+# wtlnd
+>>>>>>> 5072ec11e5a7c164a3dc34a71b4e104ac15ca2fb
