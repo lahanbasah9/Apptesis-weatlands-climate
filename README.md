@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Apptesis-weatlands-climate
+# Apptesis-weatlands-Climate
 
 ### Git Commit Messages
 Format: ```<type>(<scope>): <subject>```
