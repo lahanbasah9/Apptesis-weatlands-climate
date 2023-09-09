@@ -160,6 +160,13 @@
 					style="font-size: 14px; text-wrap: wrap;">
 				</div>
 			</div>
+
+			<!-- Answer Display -->
+			<div class="container mt-5 mb-0" id="answer-display-container" style="padding-bottom: 10vh;" hidden>
+				<h3>Kunci Jawaban</h3>
+				<div class="row justify-content-start bg-white rounded text-dark my-1 px-2 py-1" id="answer-display" hidden style="text-align: left;">
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -852,6 +859,527 @@
 			],
 		];
 
+		// const optionsTest = [
+		// 	[ // #1
+		// 		{ option: "CO2", isAnswer: false },
+		// 		{ option: "Uap Air", isAnswer: false },
+		// 		{ option: "CH4", isAnswer: false },
+		// 		{ option: "Etana", isAnswer: true },
+		// 	],
+		// 	[ // #2
+		// 		{
+		// 			option: "1800an",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "2001",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "1900an",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "2000an",
+		// 			isAnswer: false
+		// 		}
+		// 	],
+		// 	[ // #3
+		// 		{
+		// 			option: "Hidrosfer",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Atmosfer",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Troposfer",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Astenosfer",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #4
+		// 		{
+		// 			option: "Taman Nasional Sembilang di Sumatera Selatan",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Danau Sentarum di Kalimantan Barat",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Taman Nasional Tanjung Puting di Kalimantan Tengah",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Taman Nasional Komodo di Nusa Tenggara Timur",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #5
+		// 		{
+		// 			option: "Lahan gambut memiliki banyak cadangan karbondioksida 20 x lipat disbanding karbon tanah mineral biasa.",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Lahan gambut memiliki air berwarna kehitaman yang menjadi habitat banyak biota air",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Lahan gambut dapat menghasilkan lebih banyak oksigen daripada hutan",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Lahan gambut bertindak seperti spons yang menyerap 13x lipat air dari bobotnya",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #6
+		// 		{
+		// 			option: "Extinct",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Least Concern",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Near Extinct",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Critically Endangered",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #7
+		// 		{
+		// 			option: "Rawa lebak adalah rawa yang terletak jauh dari pantai sedangkan rawa pasang surut berada didekat pantai atau sungai.",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Rawa lebak memiliki kedalaman bervariasi sedangkan rawa pasang surut memiliki kedalaman maksimal 100 cm.",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Rawa lebak adalah rawa dengan genangan air kurang dari 50 cm dan tergenang maksimal 3 bulan sedangkan rawa pasang surut adalah rawa yang sering tidak terluapi air",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Rawa lebak adalah rawa dengan keanekaragaman hayati tinggi sedangkan rawa pasang surut memiliki keanekaragaman hayati rendah",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #8
+		// 		{
+		// 			option: "Maros",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Way Rarem",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Ciherang",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Pandan Wangi",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #9
+		// 		{
+		// 			option: "Jawa Barat",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Kalimantan Barat",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Kalimantan Selatan",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Kalimantan Tengah",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #10
+		// 		{
+		// 			option: "Rewetting",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Revegetation",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Revitalization of Livelihood",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Reboisation",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #11
+		// 		{
+		// 			option: "Benar, karena karang adalah tumpukan makhluk hidup laut yang telah mati dan mengerak selama ratusan tahun di laut",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Salah, karena karang adalah invertebrata air laut yang hidup dan dapat bergerak",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Salah karena karang sekumpulan bebatuan di laut yang bukan berasal dari makhluk hidup",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Salah, karena karang merupakan suatu ekosistem yang ada di laut",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #12
+		// 		{
+		// 			option: "CaCO2",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "CaCO3",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "CO2",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "CaCO4",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #13
+		// 		{
+		// 			option: "1, 2 dan 3",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "1 dan 3",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "2 dan 3",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "1 dan 4",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #14
+		// 		{
+		// 			option: "Kalimantan Timur",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Kalimantan Tengah",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Jambi",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Sumatera Selatan",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #15
+		// 		{
+		// 			option: "Menjaga sumber daya perikanan dan kelautan agar berkelanjutan produktivitasnya. ",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Meminimalkan dampak penangkapan ikan terhadap lingkungan dan Sumber Daya Ikan termasuk untuk spesies non-target dan spesies yang dilindungi. Termasuk di dalamnya melakukan konservasi perairan.",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Menghasilkan keuntungan ekonomi yang optimal bagi pelaku usaha dan masyarakat serta menghasilkan penerimaan berkelanjutan bagi negara melalui pariwisata yang berkesinambungan.",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Menjaga keberlangsungan hidup dari spesies laut yang terancam punah.",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #16
+		// 		{
+		// 			option: "Perluasan Areal",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Peningkatan Indeks Pertanaman (IP)",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Pengelolaan Air",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Pembuatan pestisida alami",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #17
+		// 		{
+		// 			option: "Karbondioksida merupakan gas yang dapat larut masuk ke dalam air dan bereaksi kimia dengan air laut sehingga mengakibatkan air laut menjadi lebih asam",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Karbondioksida bereaksi kimia dengan udara dan air aut sehingga menghasilkan ion carbon yang membuat pH laut meningkat",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Karbondioksida bereaksi kimia dengan udara dan air laut sehingga menghasilkan ion carbon yang membuat pH laut menurun",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Karbondioksida bereaksi kimia dengan udara dan air laut sehingga menghasilkan ion hidrogen yang membuat pH laut meningkat",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #18
+		// 		{
+		// 			option: "Karena GRK akan terhirup oleh manusia sehingga menyebabkan penyakit saluran pernafasan",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Karena GRK memerangkap panas matahari yang seharusnya kembali ke atmosfer sehingga membuat suhu rata-rata bumi memanas dan mengakibatkan kerusakan lingkungan",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Karena GRK membuat suhu bumi meningkat dan meningkatkan pH air laut",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Karena GRK membuat suhu bumi menurun dan membuat es di kutub serta gletser mencair",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #19
+		// 		{
+		// 			option: "Menahan laju abrasi di pesisir pantai",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Menahan laju abrasi di pesisir pantai",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Menjadi lokasi tambak udang",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Menjadi lokasi hidup ikan dan biota laut lain",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #20
+		// 		{
+		// 			option: "Peningkatan suhu perairan akibat pemanasan global, eningkatan suhu sebesar 1º-2º Celsius dapat memicu terjadinya bleaching karena suhu lingkungan tempat karang hidup sudah mendekati batas maksimal.",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Air laut yang bersifat racun karena terpapar bahan kimia berbahaya yang berasal dari limbah pabrik yang dibuang ke laut.",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Penurunan kadar pH air laut menurunkan kemampuan alga memproses cahaya untuk berfotosintesis.",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Peningkatan kadar pH air laut menurunkan kemampuan alga memproses cahaya untuk berfotosintesis.",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #21
+		// 		{
+		// 			option: "Radiasi matahari mencapai atmosfer bumi dan beberapa diantaranya dipantulkan kembali ke luar angkasa",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Sisa energi matahari diserap oleh daratan dan lautan dan kemudian memanaskan Bumi",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Panas memancar dari Bumi menuju ruang angkasa dan gas rumah kaca yang memerangkap panas ekstra, dan menyebabkan suhu bumi naik.",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Sebagian dari panas matahari terperangkap oleh GRK  di atmosfer dan aktivitas manusia seperti membakar bahan bakar fosil meningkatkan jumlah GRK  yang dilepaskan ke atmosfer.",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #22
+		// 		{
+		// 			option: "0.8˚C",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "0.9˚C",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "1.0˚C",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "1.1˚C",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #23
+		// 		{
+		// 			option: "Melakukan upaya maksimal dalam mencegah perubahan iklim",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Memperlambat laju pemanasan global di bawah 2˚Celcius, atau paling ideal 1,5˚Celcius. Saat ini suhu bumi terus memanas",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Negara-negara di dunia harus mengurangi tingkat emisi gas rumah kaca dan aktivitas serupa untuk mencapai target emisi net zero (nol bersih) pada tahun 2050.",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Negara-negara maju dan berkembang tidak diharuskan bekerja sama dalam pendanaan dan dukungan implementasi energi terbarukan yang lebih efektif",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #24
+		// 		{
+		// 			option: "Pemanasan global",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Sesak napas",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Hujan asam",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Berlubangnya ozon",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #25
+		// 		{
+		// 			option: "Wilayah lahan gambut, rawa dan air yang terbentuk secara alami atau buatan dan memiliki sifat sementara atau permanan, tidak mengalir (diam) atau mengalir dengan sifat payau, asin atau tawar, serta mencakup wilayah air marine yang ketika surut memiliki kedalaman maksimal 6 meter.",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "Ekosistem air tawar yang memiliki peranan penting dalam mitigasi serta adaptasi perubahan iklim. Lahan basah dapat menyimpan sejumlah besar karbon dan memiliki sejumlah manfaat yang esensial bagi lingkungan dan kehidupan masyarakat sekitar",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Ekosistem yang umum  ditemukan di garis pantai, yang cenderung lebih dekat ke laut dari pada ke darat dengan tanaman yang unik karena bisa mengkonversi air laut yang pekat garam untuk melakukan proses fotosintesisnya. ",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "Salah satu ekosistem yang unik di dunia yang dapat menyimpan sejumlah besar karbon di bawah permukaan tanah memiliki luas sekitar dari 3% permukaan bumi namun mengandung 20x karbon lebih banyak dari hutan lain di dunia.",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #26
+		// 		{
+		// 			option: "B",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "S",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #27
+		// 		{
+		// 			option: "B",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "S",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #28
+		// 		{
+		// 			option: "B",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "S",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #29
+		// 		{
+		// 			option: "B",
+		// 			isAnswer: false
+		// 		},
+		// 		{
+		// 			option: "S",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #30
+		// 		{
+		// 			option: "B",
+		// 			isAnswer: true
+		// 		},
+		// 		{
+		// 			option: "S",
+		// 			isAnswer: false
+		// 		},
+		// 	],
+		// 	[ // #31
+		// 		{
+		// 			option: "Ramsar",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #32
+		// 		{
+		// 			option: "Mangrove",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #33
+		// 		{
+		// 			option: "Gambut",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #34
+		// 		{
+		// 			option: "Terumbu Karang",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// 	[ // #35
+		// 		{
+		// 			option: "Karbondioksida",
+		// 			isAnswer: true
+		// 		},
+		// 	],
+		// ];
+
 		let questionIndex = 0;
 		let totalScore = 0;
 		let selectedAnswer = null;
@@ -913,6 +1441,7 @@
 				}
 			} else { // if all questions has been finished
 				questionsContainer.hidden = true;
+				document.getElementById("essay-answer-container").hidden = true;
 				document.getElementById("quest-img-container").hidden = true;
 				document.getElementById("options-container").hidden = true;
 				document.getElementById("answer-button-row").hidden = true;
@@ -930,6 +1459,21 @@
 						"Selamat! Kamu mendapat skor yang baik!"
 						:
 						"Hmm... tidak apa-apa, kita bisa kembali mempelajarinya";
+
+
+				const correctAnswers = options.map((options) => {
+					return options.filter((opt) => opt.isAnswer)[0].option
+				});
+				const answerContainer = document.getElementById("answer-display-container");
+				answerContainer.hidden = false;
+
+				for (let i = 0; i < options.length; i++) {
+					const answerTemplate = document.getElementById("answer-display").cloneNode(true);
+					answerTemplate.hidden = false;
+
+					answerTemplate.innerText = (i+1) + ". " + correctAnswers[i];
+					answerContainer.appendChild(answerTemplate);
+				}
 			}
 
 			selectedAnswer = -1
